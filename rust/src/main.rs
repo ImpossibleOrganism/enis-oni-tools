@@ -1,5 +1,10 @@
+use std::env;
+
 use oni_tools;
 
 fn main() {
-    oni_tools::greet();
+    let args: Vec<String> = env::args().collect();
+
+    // TODO: Handle incorrect number of arguments.
+    oni_tools::read(args[1].clone());
 }

@@ -23,11 +23,11 @@ pub mod mass {
         quantity: Mass; "mass";
         dimension: ONIQuantity<P1, Z0, Z0, Z0, Z0>;
         units {
-            @ton: 1.0E3; "t", "ton", "tons";
-            @kilogram: 1.0E0; "kg", "kilogram", "kilograms";
-            @gram: 1.0E-3; "g", "gram", "grams";
-            @milligram: 1.0E-6; "mg", "milligram", "milligrams";
-            @microgram: 1.0E-9; "µg", "microgram", "micrograms";
+            @ton: 1.0E6; "t", "ton", "tons";
+            @kilogram: 1.0E3; "kg", "kilogram", "kilograms";
+            @gram: 1.0E0; "g", "gram", "grams";
+            @milligram: 1.0E-3; "mg", "milligram", "milligrams";
+            @microgram: 1.0E-6; "µg", "microgram", "micrograms";
         }
     }
 }
