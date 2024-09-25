@@ -1,49 +1,34 @@
-
 #[macro_use]
 extern crate uom;
 
-use std::fmt;
 use uom::fmt::DisplayStyle::Abbreviation;
 
-use crate::units::f32;
-use crate::units::mass::{ton, kilogram};
-use crate::units::power::watt;
+use crate::units::f32::{Energy, Mass, Time};
+use crate::units::{energy, mass, power, time};
 
+mod elements;
 mod units;
-
-
-
-#[derive(Debug)]
-struct Element<'a> {
-    name: &'a str,
-}
-
-
-impl fmt::Display for Element<'_> {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}", self.name)
-    }
-}
-
-
-const ELEMENTS: [Element; 4] = [
-    Element { name : "Wood" },
-    Element { name : "Ethanol" },
-    Element { name : "Carbon Dioxide" },
-    Element { name : "Polluted Dirt" },
-];
-
 
 pub fn greet() {
     println!("Hello, world!");
 
-    let wood = f32::Mass::new::<kilogram>(10.0);
-    let heat = f32::Power::new::<watt>(10.0);
+    let wood = Mass::new::<mass::kilogram>(1000.0);
+    let day = Time::new::<time::cycle>(1.0);
+    let battery = Energy::new::<energy::kilojoule>(4.0);
 
-    println!("Wood: {}", wood.into_format_args(ton, Abbreviation));
-    println!("Heat: {}", heat.into_format_args(watt, Abbreviation));
+    let wood_rate = wood / day;
+    let power_rate = battery / day;
 
-    for element in ELEMENTS {
+    println!(
+        "Wood: {} kg/s, {} kg, {} s",
+        wood_rate.value, wood.value, day.value
+    );
+    println!(
+        "Battery drain: {}",
+        power_rate.into_format_args(power::watt, Abbreviation)
+    );
+
+    for element in elements::ELEMENTS {
         println!("Element: {element}")
     }
 }
