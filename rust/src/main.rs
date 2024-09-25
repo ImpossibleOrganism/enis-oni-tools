@@ -1,3 +1,5 @@
+use oni_tools;
+
 fn main() {
-    println!("Hello, world!");
+    oni_tools::greet();
 }
