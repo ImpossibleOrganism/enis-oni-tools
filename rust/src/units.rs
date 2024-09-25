@@ -1,3 +1,5 @@
+pub use crate::units::f32 as quantities;
+
 system! {
     quantities: ONIQuantity {
         // These are the base quantities in this system

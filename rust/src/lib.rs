@@ -3,7 +3,7 @@ extern crate uom;
 
 use uom::fmt::DisplayStyle::Abbreviation;
 
-use crate::units::f32::Mass;
+use crate::units::quantities::Mass;
 use crate::units::mass;
 
 mod elements;
