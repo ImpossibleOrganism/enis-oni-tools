@@ -18,6 +18,7 @@ system! {
         mod food_energy::FoodEnergy,
         mod count::Count,
         mod temperature::Temperature,
+        mod specific_heat_capacity::SpecificHeatCapacity,
     }
 }
 
@@ -103,6 +104,19 @@ pub mod temperature {
         units {
             @kelvin: prefix!(none); "K", "kelvin", "kelvins";
             @celsius: 1.0_E0, 273.15_E0; "°C", "degree Celsius", "degrees Celsius";
+        }
+    }
+}
+
+pub mod specific_heat_capacity {
+    quantity! {
+        quantity: SpecificHeatCapacity; "specific heat capacity";
+        dimension: ONIQuantity<N1, Z0, P1, Z0, Z0, N1>;
+        units {
+            @joule_per_gram_kelvin: 1.0_E3; "J/(g K)",
+                "joule per gram kelvin", "joules per gram kelvin";
+            @kilojoule_per_kilogram_kelvin: 1.0_E3; "kJ/(kg K)",
+            "kilojoule per kilogram kelvin", "kilojoules per kilogram kelvin";
         }
     }
 }
