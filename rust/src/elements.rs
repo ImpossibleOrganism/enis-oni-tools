@@ -11,6 +11,7 @@ impl fmt::Display for Element<'_> {
     }
 }
 
+#[allow(unused)]
 pub const ELEMENTS: [Element; 4] = [
     Element { name: "Wood" },
     Element { name: "Ethanol" },
