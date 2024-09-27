@@ -62,7 +62,7 @@ pub mod mass_flow_rate {
         dimension: ONIQuantity<P1, N1, Z0, Z0, Z0, Z0, Z0>;
         units {
             @gram_per_second: 1.0; "g/s", "gram per second", "grams per second";
-            @kilogram_per_cycle: 6.0 / 10.0; "kg/c", "kilogram per cycle", "kilograms per cycle";
+            @kilogram_per_cycle: 10.0 / 6.0; "kg/c", "kilogram per cycle", "kilograms per cycle";
         }
     }
 }
