@@ -1,3 +1,7 @@
+# --- JetBrains.gitignore ---
+# I don't want to sync settings
+.idea
+
 # --- Windows.gitignore ---
 # Windows thumbnail cache files
 Thumbs.db
