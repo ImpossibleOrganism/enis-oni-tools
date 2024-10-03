@@ -1,5 +1,3 @@
-use std::env;
-
 use clap::{CommandFactory, Parser, Subcommand};
 
 use oni_tools;
@@ -21,8 +19,24 @@ enum Commands {
         kind: String,
 
         /// Emission rate while erupting
-        #[arg(short, long)]
-        rate: f32,
+        #[arg(short = 'r', long)]
+        eruption_rate: String,
+
+        /// Length of an eruption
+        #[arg(short = 'd', long)]
+        eruption_duration: String,
+
+        /// Length of the eruption cycle
+        #[arg(short = 'p', long)]
+        eruption_period: String,
+
+        /// Length of the activity period
+        #[arg(short = 'D', long)]
+        active_duration: String,
+
+        /// Length of the whole activity/dormancy cycle
+        #[arg(short = 'P', long)]
+        active_period: String,
     },
     /// Convert mass to kilograms
     Kilo {
@@ -35,7 +49,21 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Some(Commands::Geyser { kind, rate }) => geyser::geyser_main(),
+        Some(Commands::Geyser {
+            kind,
+            eruption_rate,
+            eruption_duration,
+            eruption_period,
+            active_duration,
+            active_period,
+        }) => geyser::geyser_main(
+            kind,
+            eruption_rate,
+            eruption_duration,
+            eruption_period,
+            active_duration,
+            active_period,
+        ),
         Some(Commands::Kilo { mass }) => return oni_tools::read(mass.clone()),
         None => {
             Cli::command().print_help().expect("Failed to print help.");

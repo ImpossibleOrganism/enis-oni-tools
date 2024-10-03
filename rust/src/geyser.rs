@@ -1,5 +1,3 @@
-#[allow(unused)]
-
 use core::marker::PhantomData;
 use phf::phf_map;
 
@@ -17,19 +15,18 @@ use crate::units::specific_heat_capacity::dtu_per_gram_kelvin;
 use crate::units::temperature::kelvin;
 use crate::units::time::{cycle, second};
 
-#[allow(unused)]
 pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> = phf_map! {
     "water geyser" => GeyserType { element: "water", temperature: Temperature { dimension: PhantomData, units: PhantomData, value: 368.15, } },
     "polluted water geyser" => GeyserType { element: "polluted water", temperature: Temperature { dimension: PhantomData, units: PhantomData, value: 303.15, } },
 };
 
-#[allow(unused)]
+#[derive(Debug)]
 pub struct GeyserType<'a> {
     element: &'a str,
     temperature: Temperature,
 }
 
-#[allow(unused)]
+#[derive(Debug)]
 pub struct Geyser<'a> {
     geyser_type: &'a GeyserType<'a>,
     eruption_rate: MassFlowRate,
@@ -39,7 +36,6 @@ pub struct Geyser<'a> {
     active_period: Time,
 }
 
-#[allow(unused)]
 impl<'a> Geyser<'a> {
     pub fn new(
         geyser_type: &'a GeyserType,
@@ -68,29 +64,48 @@ impl<'a> Geyser<'a> {
     }
 }
 
-
-pub fn geyser_main(// geyser_type: &str,
-    // eruption_rate: &str,
-    // eruption_duration: &str,
-    // eruption_period: &str,
-    // active_duration: &str,
-    // active_period: &str,
+pub fn geyser_main(
+    geyser_type: &str,
+    eruption_rate: &str,
+    eruption_duration: &str,
+    eruption_period: &str,
+    active_duration: &str,
+    active_period: &str,
 ) -> () {
-    // Rate while erupting
-    let rate = MassFlowRate::new::<gram_per_second>(9243.0);
-    let shc = SpecificHeatCapacity::new::<dtu_per_gram_kelvin>(4.197);
-    let delta = Temperature::new::<kelvin>(10.0);
+    // Parse input strings
+    let geyser_type = GEYSER_TYPES
+        .get(geyser_type)
+        .expect("Could not parse geyser type");
+    let eruption_rate = eruption_rate
+        .parse::<MassFlowRate>()
+        .expect("Could not parse eruption rate");
+    let eruption_duration = eruption_duration
+        .parse::<Time>()
+        .expect("Could not parse eruption duration");
+    let eruption_period = eruption_period
+        .parse::<Time>()
+        .expect("Could not parse eruption period");
+    let active_duration = active_duration
+        .parse::<Time>()
+        .expect("Could not parse active duration");
+    let active_period = active_period
+        .parse::<Time>()
+        .expect("Could not parse active period");
 
     let geyser = Geyser::new(
-        &GEYSER_TYPES["water geyser"],
-        rate,
-        Time::new::<second>(190.0),
-        Time::new::<second>(402.0),
-        Time::new::<cycle>(71.2),
-        Time::new::<cycle>(136.8),
+        geyser_type,
+        eruption_rate,
+        eruption_duration,
+        eruption_period,
+        active_duration,
+        active_period,
     );
 
     let geyser_yield = geyser.average_yield();
+
+    // Rate while erupting
+    let shc = SpecificHeatCapacity::new::<dtu_per_gram_kelvin>(4.197);
+    let delta = Temperature::new::<kelvin>(10.0);
 
     println!(
         "Geyser:\n{}\n{}\n{}",
