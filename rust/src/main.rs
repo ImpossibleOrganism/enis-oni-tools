@@ -38,6 +38,8 @@ enum Commands {
         #[arg(short = 'P', long)]
         active_period: String,
     },
+    /// Print geyser types
+    GeyserTypes,
     /// Convert mass to kilograms
     Kilo {
         /// The amount of mass to convert to a kilogram
@@ -64,7 +66,8 @@ fn main() {
             active_duration,
             active_period,
         ),
-        Some(Commands::Kilo { mass }) => return oni_tools::read(mass.clone()),
+        Some(Commands::Kilo { mass }) => oni_tools::read(mass.clone()),
+        Some(Commands::GeyserTypes) => geyser::print_geyser_types(),
         None => {
             Cli::command().print_help().expect("Failed to print help.");
         }

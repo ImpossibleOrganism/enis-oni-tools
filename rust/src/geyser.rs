@@ -1,6 +1,3 @@
-use core::marker::PhantomData;
-use phf::phf_map;
-
 use uom::fmt::DisplayStyle::Abbreviation;
 
 use crate::units::quantities::MassFlowRate;
@@ -13,17 +10,18 @@ use crate::units::mass_flow_rate::gram_per_second;
 use crate::units::mass_flow_rate::kilogram_per_cycle;
 use crate::units::specific_heat_capacity::dtu_per_gram_kelvin;
 use crate::units::temperature::kelvin;
-use crate::units::time::{cycle, second};
 
-pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> = phf_map! {
-    "water geyser" => GeyserType { element: "water", temperature: Temperature { dimension: PhantomData, units: PhantomData, value: 368.15, } },
-    "polluted water geyser" => GeyserType { element: "polluted water", temperature: Temperature { dimension: PhantomData, units: PhantomData, value: 303.15, } },
-};
+// Geyser Types
+pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> = include!(concat!(env!("OUT_DIR"), "/gen_geyser_types.rs"));
 
-#[derive(Debug)]
+#[derive(Debug, serde::Deserialize)]
 pub struct GeyserType<'a> {
+    name: &'a str,
     element: &'a str,
-    temperature: Temperature,
+    temperature: f32,
+    pmax: f32,
+    yield_: f32,
+    active: f32,
 }
 
 #[derive(Debug)]
@@ -64,6 +62,12 @@ impl<'a> Geyser<'a> {
     }
 }
 
+pub fn print_geyser_types() {
+    for name in GEYSER_TYPES.keys() {
+        println!("{:?}", GEYSER_TYPES.get(name).unwrap());
+    }
+}
+
 pub fn geyser_main(
     geyser_type: &str,
     eruption_rate: &str,
@@ -71,7 +75,7 @@ pub fn geyser_main(
     eruption_period: &str,
     active_duration: &str,
     active_period: &str,
-) -> () {
+) {
     // Parse input strings
     let geyser_type = GEYSER_TYPES
         .get(geyser_type)

@@ -1,4 +1,4 @@
-Name                           , Element              , Temperature, PMAX, Yield, Cycle, Active %
+Name                           , Element              , Temperature, PMAX, Yield, Cycle, Active
 Water Geyser                   , Water                , 95.00      , 500 , 3000 , 600  , 0.5
 Cool Slush Geyser              , Polluted Water       , -10.00     , 500 , 1500 , 600  , 0.5
 Cool Steam Vent                , Steam                , 110.00     , 5   , 1500 , 600  , 0.5
