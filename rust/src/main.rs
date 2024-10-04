@@ -12,8 +12,20 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    /// Run calculations for a geyser
-    Geyser {
+    /// Geyser-related commands
+    #[command(subcommand)]
+    Geyser(GeyserCommands),
+    /// Convert mass to kilograms
+    Kilo {
+        /// The amount of mass to convert to a kilogram
+        mass: String,
+    },
+}
+
+#[derive(Subcommand)]
+enum GeyserCommands {
+    /// Run rate calculations for a geyser
+    Yield {
         /// Geyser type
         #[arg(short, long)]
         kind: String,
@@ -39,35 +51,32 @@ enum Commands {
         active_period: String,
     },
     /// Print geyser types
-    GeyserTypes,
-    /// Convert mass to kilograms
-    Kilo {
-        /// The amount of mass to convert to a kilogram
-        mass: String,
-    },
+    Types,
 }
 
 fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Some(Commands::Geyser {
-            kind,
-            eruption_rate,
-            eruption_duration,
-            eruption_period,
-            active_duration,
-            active_period,
-        }) => geyser::geyser_main(
-            kind,
-            eruption_rate,
-            eruption_duration,
-            eruption_period,
-            active_duration,
-            active_period,
-        ),
+        Some(Commands::Geyser(command)) => match command {
+            GeyserCommands::Yield {
+                kind,
+                eruption_rate,
+                eruption_duration,
+                eruption_period,
+                active_duration,
+                active_period,
+            } => geyser::geyser_main(
+                kind,
+                eruption_rate,
+                eruption_duration,
+                eruption_period,
+                active_duration,
+                active_period,
+            ),
+            GeyserCommands::Types => geyser::print_geyser_types(),
+        },
         Some(Commands::Kilo { mass }) => oni_tools::read(mass.clone()),
-        Some(Commands::GeyserTypes) => geyser::print_geyser_types(),
         None => {
             Cli::command().print_help().expect("Failed to print help.");
         }

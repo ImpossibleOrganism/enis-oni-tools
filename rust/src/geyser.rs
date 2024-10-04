@@ -12,7 +12,8 @@ use crate::units::specific_heat_capacity::dtu_per_gram_kelvin;
 use crate::units::temperature::kelvin;
 
 // Geyser Types
-pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> = include!(concat!(env!("OUT_DIR"), "/gen_geyser_types.rs"));
+pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> =
+    include!(concat!(env!("OUT_DIR"), "/gen_geyser_types.rs"));
 
 #[derive(Debug, serde::Deserialize)]
 pub struct GeyserType<'a> {

@@ -33,14 +33,15 @@ fn main() {
     // Deserialize
     for result in rdr.records() {
         let record = result.expect("Failed to read record");
-        let key = record.get(0).expect("Failed to read key").trim().to_string();
+        let key = record
+            .get(0)
+            .expect("Failed to read key")
+            .trim()
+            .to_string();
         let value = format!(
             r#"GeyserType {{ name: {:?}, element: {:?}, temperature: {:?}, pmax: {:?}, yield_: {:?}, active: {:?} }}"#,
             key,
-            record
-                .get(1)
-                .expect("Could not read element")
-                .trim(),
+            record.get(1).expect("Could not read element").trim(),
             record
                 .get(2)
                 .expect("Could not read temperature")
@@ -70,10 +71,5 @@ fn main() {
     }
 
     // Write to file
-    writeln!(
-        &mut file,
-        "{}",
-        phf_map.build()
-    )
-    .expect("Failed to write to file");
+    writeln!(&mut file, "{}", phf_map.build()).expect("Failed to write to file");
 }
