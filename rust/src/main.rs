@@ -66,7 +66,7 @@ fn main() {
                 eruption_period,
                 active_duration,
                 active_period,
-            } => geyser::geyser_main(
+            } => geyser::print_geyser_yield(
                 kind,
                 eruption_rate,
                 eruption_duration,

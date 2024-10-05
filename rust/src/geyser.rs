@@ -1,15 +1,10 @@
 use uom::fmt::DisplayStyle::Abbreviation;
 
 use crate::units::quantities::MassFlowRate;
-use crate::units::quantities::SpecificHeatCapacity;
-use crate::units::quantities::Temperature;
 use crate::units::quantities::Time;
 
-use crate::units::heat_transfer_rate::kilowatt_of_heat;
 use crate::units::mass_flow_rate::gram_per_second;
 use crate::units::mass_flow_rate::kilogram_per_cycle;
-use crate::units::specific_heat_capacity::dtu_per_gram_kelvin;
-use crate::units::temperature::kelvin;
 
 // Geyser Types
 pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> =
@@ -69,7 +64,7 @@ pub fn print_geyser_types() {
     }
 }
 
-pub fn geyser_main(
+pub fn print_geyser_yield(
     geyser_type: &str,
     eruption_rate: &str,
     eruption_duration: &str,
@@ -109,13 +104,15 @@ pub fn geyser_main(
     let geyser_yield = geyser.average_yield();
 
     // Rate while erupting
-    let shc = SpecificHeatCapacity::new::<dtu_per_gram_kelvin>(4.197);
-    let delta = Temperature::new::<kelvin>(10.0);
+    // let shc = SpecificHeatCapacity::new::<dtu_per_gram_kelvin>(4.197);
+    // let delta = Temperature::new::<kelvin>(10.0);
+    // (geyser_yield * shc * delta).into_format_args(kilowatt_of_heat, Abbreviation),
 
     println!(
-        "Geyser:\n{}\n{}\n{}",
+        "{0}:\n{2} {1}\n{3} {1}",
+        geyser.geyser_type.name,
+        geyser.geyser_type.element,
         geyser_yield.into_format_args(gram_per_second, Abbreviation),
         geyser_yield.into_format_args(kilogram_per_cycle, Abbreviation),
-        (geyser_yield * shc * delta).into_format_args(kilowatt_of_heat, Abbreviation),
     );
 }
