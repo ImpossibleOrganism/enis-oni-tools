@@ -6,10 +6,13 @@ use crate::units::quantities::Time;
 use crate::units::mass_flow_rate::gram_per_second;
 use crate::units::mass_flow_rate::kilogram_per_cycle;
 
-// Geyser Types
+/// Geyser types from Oxygen Not Included, stored as a mapping from name to struct.
+/// This is hard-coded into the binary; I would like to add the option to provide your own custom
+///  serialized geyser types, but I haven't got to it yet.
 pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> =
     include!(concat!(env!("OUT_DIR"), "/gen_geyser_types.rs"));
 
+/// Struct defining a type of Geyser (such as Water Geyser).
 #[derive(Debug)]
 pub struct GeyserType<'a> {
     name: &'a str,
@@ -20,6 +23,7 @@ pub struct GeyserType<'a> {
     active: f32,
 }
 
+/// Struct defining a specific geyser.
 #[derive(Debug)]
 pub struct Geyser<'a> {
     geyser_type: &'a GeyserType<'a>,
