@@ -10,7 +10,7 @@ use crate::units::mass_flow_rate::kilogram_per_cycle;
 pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> =
     include!(concat!(env!("OUT_DIR"), "/gen_geyser_types.rs"));
 
-#[derive(Debug, serde::Deserialize)]
+#[derive(Debug)]
 pub struct GeyserType<'a> {
     name: &'a str,
     element: &'a str,

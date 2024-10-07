@@ -15,7 +15,6 @@ path = "rust/main.rs"
 clap = { version = "4.5.18", features = ["cargo", "derive"] }
 phf = { version = "^0.11", features = ["macros"] }
 pyo3 = "0.22.3"
-serde = { version = "1.0.210", features = ["derive"] }
 uom = "^0.36.0"
 
 [build-dependencies]

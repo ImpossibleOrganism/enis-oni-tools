@@ -199,7 +199,6 @@ dependencies = [
  "phf",
  "phf_codegen",
  "pyo3",
- "serde",
  "uom",
 ]
 
