@@ -11,8 +11,8 @@ fn main() {
 
     // --- Create hash tables ---
     // Find the input file
-    // TODO: The path to assets (../assets) should be an environment variable.
-    let geysers_file_path = Path::new("../data/geysers.csv");
+    // TODO: The path to assets (./data) should be an environment variable.
+    let geysers_file_path = Path::new("data/geysers.csv");
     let mut rdr = csv::Reader::from_path(geysers_file_path).expect("Failed to read CSV file");
 
     // Open the output file

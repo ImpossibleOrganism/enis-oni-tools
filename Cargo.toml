@@ -3,6 +3,13 @@ name = "oni-tools"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+path = "rust/lib.rs"
+
+[[bin]]
+name = "oni-tools"
+path = "rust/main.rs"
+
 [dependencies]
 clap = { version = "4.5.18", features = ["cargo", "derive"] }
 phf = { version = "^0.11", features = ["macros"] }
