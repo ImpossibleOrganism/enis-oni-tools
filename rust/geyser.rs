@@ -1,9 +1,11 @@
-use crate::units::quantities::MassFlowRate;
-use crate::units::quantities::Time;
-use uom::fmt::DisplayStyle::Abbreviation;
-
+use crate::parse_with_default_unit;
 use crate::units::mass_flow_rate::gram_per_second;
 use crate::units::mass_flow_rate::kilogram_per_cycle;
+use crate::units::quantities::MassFlowRate;
+use crate::units::quantities::Time;
+use crate::units::time::cycle;
+use crate::units::time::second;
+use uom::fmt::DisplayStyle::Abbreviation;
 
 /// Geyser types from Oxygen Not Included, stored as a mapping from name to struct.
 /// This is hard-coded into the binary; I would like to add the option to provide your own custom
@@ -52,6 +54,55 @@ impl<'a> Geyser<'a> {
         }
     }
 
+    pub fn new_from_strings(
+        geyser_type: &str,
+        eruption_rate: &str,
+        eruption_duration: &str,
+        eruption_period: &str,
+        active_duration: &str,
+        active_period: &str,
+    ) -> Self {
+        // Parse input strings
+        let geyser_type = GEYSER_TYPES
+            .get(geyser_type)
+            .expect("Could not parse geyser type");
+        let eruption_rate = parse_with_default_unit!(
+            eruption_rate,
+            MassFlowRate,
+            gram_per_second,
+            "Could not parse eruption rate"
+        );
+        let eruption_duration = parse_with_default_unit!(
+            eruption_duration,
+            Time,
+            second,
+            "Could not parse eruption duration"
+        );
+        let eruption_period = parse_with_default_unit!(
+            eruption_period,
+            Time,
+            second,
+            "Could not parse eruption period"
+        );
+        let active_duration = parse_with_default_unit!(
+            active_duration,
+            Time,
+            cycle,
+            "Could not parse active duration"
+        );
+        let active_period =
+            parse_with_default_unit!(active_period, Time, cycle, "Could not parse active period");
+
+        Self::new(
+            geyser_type,
+            eruption_rate,
+            eruption_duration,
+            eruption_period,
+            active_duration,
+            active_period,
+        )
+    }
+
     pub fn average_active_yield(&self) -> MassFlowRate {
         self.eruption_rate * (self.eruption_duration / self.eruption_period)
     }
@@ -75,27 +126,7 @@ pub fn print_geyser_yield(
     active_duration: &str,
     active_period: &str,
 ) {
-    // Parse input strings
-    let geyser_type = GEYSER_TYPES
-        .get(geyser_type)
-        .expect("Could not parse geyser type");
-    let eruption_rate = eruption_rate
-        .parse::<MassFlowRate>()
-        .expect("Could not parse eruption rate");
-    let eruption_duration = eruption_duration
-        .parse::<Time>()
-        .expect("Could not parse eruption duration");
-    let eruption_period = eruption_period
-        .parse::<Time>()
-        .expect("Could not parse eruption period");
-    let active_duration = active_duration
-        .parse::<Time>()
-        .expect("Could not parse active duration");
-    let active_period = active_period
-        .parse::<Time>()
-        .expect("Could not parse active period");
-
-    let geyser = Geyser::new(
+    let geyser = Geyser::new_from_strings(
         geyser_type,
         eruption_rate,
         eruption_duration,
