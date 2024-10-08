@@ -11,14 +11,10 @@ pub mod geyser;
 mod python;
 mod units;
 
-pub use units::mass;
-pub use units::quantities;
+pub use units::Parseable;
 
-pub fn read(string: String) {
-    let amount = parse_with_default_unit!(string, Mass, kilogram);
-
-    println!(
-        "'{string}' is {}.",
-        amount.into_format_args(kilogram, Abbreviation)
-    );
+pub fn convert(input: Parseable) -> String {
+    let amount: Mass = parseable_with_default_unit!(input, Mass, kilogram);
+    
+    format!("{}", amount.into_format_args(kilogram, Abbreviation))
 }

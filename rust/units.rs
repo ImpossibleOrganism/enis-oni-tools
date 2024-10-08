@@ -1,4 +1,12 @@
+use crate::units;
 pub use crate::units::f32 as quantities;
+
+pub type Base = f32;
+
+pub enum Parseable<'a> {
+    Raw(Base),
+    Parse(&'a str),
+}
 
 /// Macro to parse from a string with default unit
 #[macro_export]
@@ -11,6 +19,21 @@ macro_rules! parse_with_default_unit {
 
     ($string:expr, $quantity:ty, $unit:ty) => {
         parse_with_default_unit!($string, $quantity, $unit, "Failed to parse input")
+    };
+}
+
+/// Macro to parse from a string or a f32 with default unit
+#[macro_export]
+macro_rules! parseable_with_default_unit {
+    ($input:expr, $quantity:ty, $unit:ty, $err_msg:expr) => {
+        match $input {
+            Parseable::Raw(amount) => <$quantity>::new::<$unit>(amount),
+            Parseable::Parse(string) => parse_with_default_unit!(string, $quantity, $unit, $err_msg)
+        }
+    };
+    
+    ($input:expr, $quantity:ty, $unit:ty) => {
+        parseable_with_default_unit!($input, $quantity, $unit, "Failed to parse input")
     };
 }
 
@@ -201,5 +224,7 @@ pub mod specific_heat_capacity {
 }
 
 pub mod f32 {
-    ONIQuantity!(crate::units, f32);
+    use super::Base;
+
+    ONIQuantity!(crate::units, Base);
 }

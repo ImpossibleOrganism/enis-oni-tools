@@ -2,6 +2,7 @@ use clap::{CommandFactory, Parser, Subcommand};
 
 use oni_tools;
 use oni_tools::geyser;
+use oni_tools::Parseable;
 
 #[derive(Parser)]
 #[command(version, about = "Eni's Oxygen Not Included Tools")]
@@ -76,7 +77,7 @@ fn main() {
             ),
             GeyserCommands::Types => geyser::print_geyser_types(),
         },
-        Some(Commands::Kilo { mass }) => oni_tools::read(mass.clone()),
+        Some(Commands::Kilo { mass }) => println!("{}", oni_tools::convert(Parseable::Parse(mass))),
         None => {
             Cli::command().print_help().expect("Failed to print help.");
         }
