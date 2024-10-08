@@ -28,10 +28,12 @@ macro_rules! parseable_with_default_unit {
     ($input:expr, $quantity:ty, $unit:ty, $err_msg:expr) => {
         match $input {
             Parseable::Raw(amount) => <$quantity>::new::<$unit>(amount),
-            Parseable::Parse(string) => parse_with_default_unit!(string, $quantity, $unit, $err_msg)
+            Parseable::Parse(string) => {
+                parse_with_default_unit!(string, $quantity, $unit, $err_msg)
+            }
         }
     };
-    
+
     ($input:expr, $quantity:ty, $unit:ty) => {
         parseable_with_default_unit!($input, $quantity, $unit, "Failed to parse input")
     };
