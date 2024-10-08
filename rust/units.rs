@@ -1,5 +1,19 @@
 pub use crate::units::f32 as quantities;
 
+/// Macro to parse from a string with default unit
+#[macro_export]
+macro_rules! parse_with_default_unit {
+    ($string:expr, $quantity:ty, $unit:ty, $err_msg:expr) => {
+        $string
+            .parse::<$quantity>()
+            .unwrap_or_else(|_| <$quantity>::new::<$unit>($string.parse().expect($err_msg)))
+    };
+
+    ($string:expr, $quantity:ty, $unit:ty) => {
+        parse_with_default_unit!($string, $quantity, $unit, "Failed to parse input")
+    };
+}
+
 system! {
     quantities: ONIQuantity {
         // These are the base quantities in this system

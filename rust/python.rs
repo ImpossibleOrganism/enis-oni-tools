@@ -1,5 +1,4 @@
 /// Example Python Bindings from the PyO3 docs.
-
 use pyo3::prelude::*;
 
 /// Formats the sum of two numbers as string.

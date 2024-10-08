@@ -1,7 +1,6 @@
-use uom::fmt::DisplayStyle::Abbreviation;
-
 use crate::units::quantities::MassFlowRate;
 use crate::units::quantities::Time;
+use uom::fmt::DisplayStyle::Abbreviation;
 
 use crate::units::mass_flow_rate::gram_per_second;
 use crate::units::mass_flow_rate::kilogram_per_cycle;
