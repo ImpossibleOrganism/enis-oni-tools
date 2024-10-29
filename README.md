@@ -32,3 +32,14 @@ There are also types of reactions:
 which have modifications associated with them, such as geotuning and mutations.
 
 I think that a good place to start is putting some basic ONI info (optionally) in the text section of the executable.
+
+## Pulling Data from the Wiki
+
+I'm not going to write code to pull data from the wiki because I think it's more time efficient to just do the regex 
+substitutions by hand in Sublime. I will write down those regex substitutions for later though.
+
+```regexp
+(.+)(?:\(Spaced Out\))?.png\1
+^(.+)\1
+^([\w ]+) \t([\w\- ]+?)(?: This content was added in Spaced Out)? \t([\.\d]+)
+```

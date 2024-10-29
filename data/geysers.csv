@@ -1,26 +1,26 @@
-Name                           , Element              , Temperature, PMAX, Yield, Cycle, Active
-Water Geyser                   , Water                , 95.00      , 500 , 3000 , 600  , 0.5
-Cool Slush Geyser              , Polluted Water       , -10.00     , 500 , 1500 , 600  , 0.5
-Cool Steam Vent                , Steam                , 110.00     , 5   , 1500 , 600  , 0.5
-Salt Water Geyser              , Salt Water           , 95.00      , 500 , 3000 , 600  , 0.5
-Steam Vent                     , Steam                , 500.00     , 5   , 750  , 600  , 0.5
-Polluted Water Vent            , Polluted Water       , 30.00      , 500 , 3000 , 600  , 0.5
-Cool Salt Slush Geyser         , Brine                , -10.00     , 500 , 1500 , 600  , 0.5
-Copper Volcano                 , Molten Copper        , 2226.85    , 150 , 300  , 780  , 0.0583
-Iron Volcano                   , Molten Iron          , 2526.85    , 150 , 300  , 780  , 0.0583
-Gold Volcano                   , Molten Gold          , 2626.85    , 150 , 300  , 780  , 0.0583
-Aluminum Volcano               , Molten Aluminum      , 1726.85    , 150 , 300  , 780  , 0.0583
-Tungsten Volcano               , Molten Tungsten      , 3726.85    , 150 , 300  , 780  , 0.0583
-Cobalt Volcano                 , Molten Cobalt        , 2226.85    , 150 , 300  , 780  , 0.0583
-Niobium Volcano                , Molten Niobium       , 3226.85    , 150 , 1200 , 9000 , 0.0075
-Volcano                        , Magma                , 1726.85    , 150 , 1200 , 9000 , 0.0075
-Minor Volcano                  , Magma                , 1726.85    , 150 , 600  , 9000 , 0.0075
-Hot Polluted Oxygen Vent       , Polluted Oxygen      , 500.00     , 5   , 105  , 600  , 0.5
-Hydrogen Vent                  , Hydrogen Gas         , 500.00     , 5   , 105  , 600  , 0.5
-Natural Gas Geyser             , Natural Gas          , 150.00     , 5   , 105  , 600  , 0.5
-Liquid Sulfur Geyser           , Liquid Sulfur        , 165.20     , 500 , 1500 , 600  , 0.5
-Leaky Oil Fissure              , Crude Oil            , 326.85     , 50  , 126  , 300  , 0.6
-Infectious Polluted Oxygen Vent, Polluted Oxygen      , 60.00      , 5   , 105  , 600  , 0.5
-Chlorine Gas Vent              , Chlorine Gas         , 60.00      , 5   , 105  , 600  , 0.5
-Carbon Dioxide Vent            , Carbon Dioxide       , 500.00     , 5   , 105  , 600  , 0.5
-Carbon Dioxide Geyser          , Liquid Carbon Dioxide, -55.15     , 50  , 150  , 600  , 0.5
+Name,                            Element,               Temperature, PMAX, Yield, Cycle, Active
+Water Geyser,                    Water,                 95.00,       500,  3000,  600,   0.5
+Cool Slush Geyser,               Polluted Water,        -10.00,      500,  1500,  600,   0.5
+Cool Steam Vent,                 Steam,                 110.00,      5,    1500,  600,   0.5
+Salt Water Geyser,               Salt Water,            95.00,       500,  3000,  600,   0.5
+Steam Vent,                      Steam,                 500.00,      5,    750,   600,   0.5
+Polluted Water Vent,             Polluted Water,        30.00,       500,  3000,  600,   0.5
+Cool Salt Slush Geyser,          Brine,                 -10.00,      500,  1500,  600,   0.5
+Copper Volcano,                  Molten Copper,         2226.85,     150,  300,   780,   0.0583
+Iron Volcano,                    Molten Iron,           2526.85,     150,  300,   780,   0.0583
+Gold Volcano,                    Molten Gold,           2626.85,     150,  300,   780,   0.0583
+Aluminum Volcano,                Molten Aluminum,       1726.85,     150,  300,   780,   0.0583
+Tungsten Volcano,                Molten Tungsten,       3726.85,     150,  300,   780,   0.0583
+Cobalt Volcano,                  Molten Cobalt,         2226.85,     150,  300,   780,   0.0583
+Niobium Volcano,                 Molten Niobium,        3226.85,     150,  1200,  9000,  0.0075
+Volcano,                         Magma,                 1726.85,     150,  1200,  9000,  0.0075
+Minor Volcano,                   Magma,                 1726.85,     150,  600,   9000,  0.0075
+Hot Polluted Oxygen Vent,        Polluted Oxygen,       500.00,      5,    105,   600,   0.5
+Hydrogen Vent,                   Hydrogen Gas,          500.00,      5,    105,   600,   0.5
+Natural Gas Geyser,              Natural Gas,           150.00,      5,    105,   600,   0.5
+Liquid Sulfur Geyser,            Liquid Sulfur,         165.20,      500,  1500,  600,   0.5
+Leaky Oil Fissure,               Crude Oil,             326.85,      50,   126,   300,   0.6
+Infectious Polluted Oxygen Vent, Polluted Oxygen,       60.00,       5,    105,   600,   0.5
+Chlorine Gas Vent,               Chlorine Gas,          60.00,       5,    105,   600,   0.5
+Carbon Dioxide Vent,             Carbon Dioxide,        500.00,      5,    105,   600,   0.5
+Carbon Dioxide Geyser,           Liquid Carbon Dioxide, -55.15,      50,   150,   600,   0.5

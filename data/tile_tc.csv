@@ -1,0 +1,44 @@
+Name,                            Material,         Thermal Conductivity
+Insulite Insulated Tile,         Insulite,         6.15e-10
+Insulite Tile,                   Insulite,         0.00001
+Insulite Carpeted Tile,          Insulite,         0.00001
+Ceramic Insulated Tile,          Ceramic,          0.0000381
+Mafic Rock Insulated Tile,       Mafic Rock,       0.0000615
+Fossil Insulated Tile,           Fossil,           0.000123
+Igneous Rock Insulated Tile,     Igneous Rock,     0.000123
+Obsidian Insulated Tile,         Obsidian,         0.000123
+Sedimentary Rock Insulated Tile, Sedimentary Rock, 0.000123
+Sandstone Insulated Tile,        Sandstone,        0.000178
+Granite Insulated Tile,          Granite,          0.000209
+Plastic Plastic Tile,            Plastic,          0.150
+Solid Visco-Gel Plastic Tile,    Solid Visco-Gel,  0.450
+Ceramic Tile,                    Ceramic,          0.620
+Ceramic Carpeted Tile,           Ceramic,          0.620
+Resource Glass Window Tile,      Resource Glass,   1.110
+Mafic Rock Tile,                 Mafic Rock,       1.000
+Mafic Rock Carpeted Tile,        Mafic Rock,       1.000
+Fossil Tile,                     Fossil,           2.000
+Fossil Carpeted Tile,            Fossil,           2.000
+Igneous Rock Tile,               Igneous Rock,     2.000
+Igneous Rock Carpeted Tile,      Igneous Rock,     2.000
+Obsidian Tile,                   Obsidian,         2.000
+Obsidian Carpeted Tile,          Obsidian,         2.000
+Sedimentary Rock Tile,           Sedimentary Rock, 2.000
+Sedimentary Rock Carpeted Tile,  Sedimentary Rock, 2.000
+Sandstone Tile,                  Sandstone,        2.900
+Sandstone Carpeted Tile,         Sandstone,        2.900
+Granite Tile,                    Granite,          3.390
+Granite Carpeted Tile,           Granite,          3.390
+Depleted Uranium Metal Tile,     Depleted Uranium, 20.000
+Lead Metal Tile,                 Lead,             35.000
+Steel Metal Tile,                Steel,            54.000
+Steel Bunker Tile,               Steel,            54.000
+Niobium Metal Tile,              Niobium,          54.000
+Iron Metal Tile,                 Iron,             55.000
+Copper Metal Tile,               Copper,           60.000
+Gold Metal Tile,                 Gold,             60.000
+Tungsten Metal Tile,             Tungsten,         60.000
+Diamond Window Tile,             Diamond,          80.000
+Cobalt Metal Tile,               Cobalt,           100.000
+Aluminum Metal Tile,             Aluminum,         205.000
+Thermium Metal Tile,             Thermium,         220.000

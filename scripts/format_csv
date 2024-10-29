@@ -1,0 +1,83 @@
+#!python
+
+import csv
+from pathlib import Path
+from typing import Optional, TextIO
+
+import click
+import numpy as np
+
+
+IN_PATH_KWARGS = dict(
+    metavar="IN_FILE",
+    type=click.Path(
+        exists=True,
+        dir_okay=False,
+        path_type=Path,
+    ),
+)
+
+
+@click.command()
+@click.argument(
+    "in_path",
+    required=False,
+    **IN_PATH_KWARGS,
+)
+@click.option(
+    "-i",
+    "--in-file",
+    "in_path",
+    help="The CSV file to format.",
+    **IN_PATH_KWARGS,
+)
+@click.option(
+    "-o",
+    "--out-file",
+    "out_file",
+    type=click.File("w"),
+    metavar="OUT_FILE",
+    help="The file to write output to; defaults to stdout.",
+)
+@click.option(
+    "-O",
+    "--overwrite",
+    type=bool,
+    is_flag=True,
+    help="Overwrite the inputted file.",
+)
+def main(
+    in_path: Path,
+    out_file: Optional[TextIO],
+    overwrite: bool,
+):
+    """Add spaces to align a CSV so that every column starts on the same line."""
+    # --- Input Validation ---
+    if overwrite and out_file:
+        raise click.UsageError(
+            "You cannot use both --overwrite and specify an output path."
+        )
+
+    # --- Read input CSV ---
+    with in_path.open("r") as in_file:
+        rows = np.char.strip(list(csv.reader(in_file)))
+
+    # --- Output Formatted CSV ---
+    if overwrite:
+        out_file = in_path.open("w")
+
+    col_lengths = np.char.str_len(rows).max(axis=0) + 2
+    for row in rows:
+        print(
+            "".join(f"{f"{cell},":<{length}}" for cell, length in zip(row, col_lengths))
+            .strip()
+            .removesuffix(","),
+            file=out_file,
+        )
+
+    if out_file:
+        out_file.close()
+
+
+if __name__ == "__main__":
+    main()
