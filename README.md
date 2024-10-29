@@ -44,4 +44,6 @@ substitutions by hand in Sublime. I will write down those regex substitutions fo
 ^(.+)\1
 ^([\w ]+) \t([\w\- ]+?)(?: This content was added in Spaced Out)? \t([\.\d]+)
 ^(.+?)\t([-\d.]+)\t(.*?)\t([-\d.]+)\t(.*?)\t([-\d.]+)\t([-\d.]+)\t([-\d.%]+)\t([-\d.%]+)\t([\d.]+)\s*$
+^([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)$
+%\n^([^,]*)%    --->   % / $1%
 ```
