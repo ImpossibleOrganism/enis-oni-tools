@@ -1,4 +1,4 @@
-#!python
+#!/usr/bin/env python
 
 import csv
 from pathlib import Path
@@ -8,28 +8,15 @@ import click
 import numpy as np
 
 
-IN_PATH_KWARGS = dict(
+@click.command()
+@click.argument(
+    "in_path",
     metavar="IN_FILE",
     type=click.Path(
         exists=True,
         dir_okay=False,
         path_type=Path,
     ),
-)
-
-
-@click.command()
-@click.argument(
-    "in_path",
-    required=False,
-    **IN_PATH_KWARGS,
-)
-@click.option(
-    "-i",
-    "--in-file",
-    "in_path",
-    help="The CSV file to format.",
-    **IN_PATH_KWARGS,
 )
 @click.option(
     "-o",
@@ -51,7 +38,8 @@ def main(
     out_file: Optional[TextIO],
     overwrite: bool,
 ):
-    """Add spaces to align a CSV so that every column starts on the same line."""
+    """Add spaces to align the CSV file IN_FILE so that every column starts on the same
+    line."""
     # --- Input Validation ---
     if overwrite and out_file:
         raise click.UsageError(

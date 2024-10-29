@@ -1,57 +1,57 @@
-Name,                                   Material,         Thermal Conductivity
-Insulite Insulated Liquid Pipe,         Insulite,         0.0000003125
-Insulite Liquid Pipe,                   Insulite,         0.00001
-Ceramic Insulated Liquid Pipe,          Ceramic,          0.019375
-Obsidian Insulated Liquid Pipe,         Obsidian,         0.0625
-Igneous Rock Insulated Liquid Pipe,     Igneous Rock,     0.0625
-Sedimentary Rock Insulated Liquid Pipe, Sedimentary Rock, 0.0625
-Sandstone Insulated Liquid Pipe,        Sandstone,        0.090625
-Granite Insulated Liquid Pipe,          Granite,          0.1059375
-Wolframite Insulated Liquid Pipe,       Wolframite,       0.46875
-Tungsten Insulated Liquid Pipe,         Tungsten,         0.46875
-Ceramic Liquid Pipe,                    Ceramic,          0.62
-Obsidian Liquid Pipe,                   Obsidian,         2
-Igneous Rock Liquid Pipe,               Igneous Rock,     2
-Sedimentary Rock Liquid Pipe,           Sedimentary Rock, 2
-Sandstone Liquid Pipe,                  Sandstone,        2.9
-Granite Liquid Pipe,                    Granite,          3.39
-Thermium Insulated Liquid Pipe,         Thermium,         6.875
-Wolframite Liquid Pipe,                 Wolframite,       15
-Tungsten Liquid Pipe,                   Tungsten,         60
-Lead Radiant Liquid Pipe,               Lead,             70
-Niobium Radiant Liquid Pipe,            Niobium,          108
-Steel Radiant Liquid Pipe,              Steel,            108
-Iron Radiant Liquid Pipe,               Iron,             110
-Copper Radiant Liquid Pipe,             Copper,           120
-Tungsten Radiant Liquid Pipe,           Tungsten,         120
-Gold Radiant Liquid Pipe,               Gold,             120
-Cobalt Radiant Liquid Pipe,             Cobalt,           200
-Thermium Liquid Pipe,                   Thermium,         220
-Aluminum Radiant Liquid Pipe,           Aluminum,         410
-Thermium Radiant Liquid Pipe,           Thermium,         440
-Insulite Insulated Gas Pipe,            Insulite,         0.0000003125
-Insulite Gas Pipe,                      Insulite,         0.00001
-Ceramic Insulated Gas Pipe,             Ceramic,          0.019375
-Mafic Rock Insulated Gas Pipe,          Mafic Rock,       0.03125
-Obsidian Insulated Gas Pipe,            Obsidian,         0.0625
-Igneous Rock Insulated Gas Pipe,        Igneous Rock,     0.0625
-Sedimentary Rock Insulated Gas Pipe,    Sedimentary Rock, 0.0625
-Sandstone Insulated Gas Pipe,           Sandstone,        0.090625
-Granite Insulated Gas Pipe,             Granite,          0.1059375
-Ceramic Gas Pipe,                       Ceramic,          0.62
-Mafic Rock Gas Pipe,                    Mafic Rock,       1
-Obsidian Gas Pipe,                      Obsidian,         2
-Igneous Rock Gas Pipe,                  Igneous Rock,     2
-Sedimentary Rock Gas Pipe,              Sedimentary Rock, 2
-Sandstone Gas Pipe,                     Sandstone,        2.9
-Granite Gas Pipe,                       Granite,          3.39
-Gold Amalgam Radiant Gas Pipe,          Gold Amalgam,     4
-Iron Ore Radiant Gas Pipe,              Iron Ore,         8
-Cobalt Ore Radiant Gas Pipe,            Cobalt Ore,       8
-Copper Ore Radiant Gas Pipe,            Copper Ore,       9
-Pyrite Radiant Gas Pipe,                Pyrite,           9
-Wolframite Radiant Gas Pipe,            Wolframite,       30
-Aluminum Ore Radiant Gas Pipe,          Aluminum Ore,     41
-Niobium Radiant Gas Pipe,               Niobium,          108
-Steel Radiant Gas Pipe,                 Steel,            108
-Thermium Radiant Gas Pipe,              Thermium,         440
+Name,                                   Material,         Thermal Conductivity, Flags,     Mass
+Insulite Insulated Liquid Pipe,         Insulite,         0.0000003125,         Insulated, 400.0
+Insulite Liquid Pipe,                   Insulite,         0.00001,              NA,        100.0
+Ceramic Insulated Liquid Pipe,          Ceramic,          0.019375,             Insulated, 400.0
+Obsidian Insulated Liquid Pipe,         Obsidian,         0.0625,               Insulated, 400.0
+Igneous Rock Insulated Liquid Pipe,     Igneous Rock,     0.0625,               Insulated, 400.0
+Sedimentary Rock Insulated Liquid Pipe, Sedimentary Rock, 0.0625,               Insulated, 400.0
+Sandstone Insulated Liquid Pipe,        Sandstone,        0.090625,             Insulated, 400.0
+Granite Insulated Liquid Pipe,          Granite,          0.1059375,            Insulated, 400.0
+Wolframite Insulated Liquid Pipe,       Wolframite,       0.46875,              Insulated, 400.0
+Tungsten Insulated Liquid Pipe,         Tungsten,         0.46875,              Insulated, 400.0
+Ceramic Liquid Pipe,                    Ceramic,          0.62,                 NA,        100.0
+Obsidian Liquid Pipe,                   Obsidian,         2,                    NA,        100.0
+Igneous Rock Liquid Pipe,               Igneous Rock,     2,                    NA,        100.0
+Sedimentary Rock Liquid Pipe,           Sedimentary Rock, 2,                    NA,        100.0
+Sandstone Liquid Pipe,                  Sandstone,        2.9,                  NA,        100.0
+Granite Liquid Pipe,                    Granite,          3.39,                 NA,        100.0
+Thermium Insulated Liquid Pipe,         Thermium,         6.875,                Insulated, 400.0
+Wolframite Liquid Pipe,                 Wolframite,       15,                   NA,        100.0
+Tungsten Liquid Pipe,                   Tungsten,         60,                   NA,        100.0
+Lead Radiant Liquid Pipe,               Lead,             70,                   Radiant,   50.0
+Niobium Radiant Liquid Pipe,            Niobium,          108,                  Radiant,   50.0
+Steel Radiant Liquid Pipe,              Steel,            108,                  Radiant,   50.0
+Iron Radiant Liquid Pipe,               Iron,             110,                  Radiant,   50.0
+Copper Radiant Liquid Pipe,             Copper,           120,                  Radiant,   50.0
+Tungsten Radiant Liquid Pipe,           Tungsten,         120,                  Radiant,   50.0
+Gold Radiant Liquid Pipe,               Gold,             120,                  Radiant,   50.0
+Cobalt Radiant Liquid Pipe,             Cobalt,           200,                  Radiant,   50.0
+Thermium Liquid Pipe,                   Thermium,         220,                  NA,        100.0
+Aluminum Radiant Liquid Pipe,           Aluminum,         410,                  Radiant,   50.0
+Thermium Radiant Liquid Pipe,           Thermium,         440,                  Radiant,   50.0
+Insulite Insulated Gas Pipe,            Insulite,         0.0000003125,         Insulated, 400.0
+Insulite Gas Pipe,                      Insulite,         0.00001,              NA,        25.0
+Ceramic Insulated Gas Pipe,             Ceramic,          0.019375,             Insulated, 400.0
+Mafic Rock Insulated Gas Pipe,          Mafic Rock,       0.03125,              Insulated, 400.0
+Obsidian Insulated Gas Pipe,            Obsidian,         0.0625,               Insulated, 400.0
+Igneous Rock Insulated Gas Pipe,        Igneous Rock,     0.0625,               Insulated, 400.0
+Sedimentary Rock Insulated Gas Pipe,    Sedimentary Rock, 0.0625,               Insulated, 400.0
+Sandstone Insulated Gas Pipe,           Sandstone,        0.090625,             Insulated, 400.0
+Granite Insulated Gas Pipe,             Granite,          0.1059375,            Insulated, 400.0
+Ceramic Gas Pipe,                       Ceramic,          0.62,                 NA,        25.0
+Mafic Rock Gas Pipe,                    Mafic Rock,       1,                    NA,        25.0
+Obsidian Gas Pipe,                      Obsidian,         2,                    NA,        25.0
+Igneous Rock Gas Pipe,                  Igneous Rock,     2,                    NA,        25.0
+Sedimentary Rock Gas Pipe,              Sedimentary Rock, 2,                    NA,        25.0
+Sandstone Gas Pipe,                     Sandstone,        2.9,                  NA,        25.0
+Granite Gas Pipe,                       Granite,          3.39,                 NA,        25.0
+Gold Amalgam Radiant Gas Pipe,          Gold Amalgam,     4,                    Radiant,   25.0
+Iron Ore Radiant Gas Pipe,              Iron Ore,         8,                    Radiant,   25.0
+Cobalt Ore Radiant Gas Pipe,            Cobalt Ore,       8,                    Radiant,   25.0
+Copper Ore Radiant Gas Pipe,            Copper Ore,       9,                    Radiant,   25.0
+Pyrite Radiant Gas Pipe,                Pyrite,           9,                    Radiant,   25.0
+Wolframite Radiant Gas Pipe,            Wolframite,       30,                   Radiant,   25.0
+Aluminum Ore Radiant Gas Pipe,          Aluminum Ore,     41,                   Radiant,   25.0
+Niobium Radiant Gas Pipe,               Niobium,          108,                  Radiant,   25.0
+Steel Radiant Gas Pipe,                 Steel,            108,                  Radiant,   25.0
+Thermium Radiant Gas Pipe,              Thermium,         440,                  Radiant,   25.0
