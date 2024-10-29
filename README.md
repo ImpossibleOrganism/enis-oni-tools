@@ -39,7 +39,9 @@ I'm not going to write code to pull data from the wiki because I think it's more
 substitutions by hand in Sublime. I will write down those regex substitutions for later though.
 
 ```regexp
-(.+)(?:\(Spaced Out\))?.png\1
+^.*?\.png\s*
+(.+)(?:\(Spaced Out\))?.png\s*\1
 ^(.+)\1
 ^([\w ]+) \t([\w\- ]+?)(?: This content was added in Spaced Out)? \t([\.\d]+)
+^(.+?)\t([-\d.]+)\t(.*?)\t([-\d.]+)\t(.*?)\t([-\d.]+)\t([-\d.]+)\t([-\d.%]+)\t([-\d.%]+)\t([\d.]+)\s*$
 ```

@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Optional, TextIO
 
 import click
-import numpy as np
 
 
 @click.command()
@@ -48,16 +47,29 @@ def main(
 
     # --- Read input CSV ---
     with in_path.open("r") as in_file:
-        rows = np.char.strip(list(csv.reader(in_file)))
+        rows = list(csv.reader(in_file))
+
+    # --- Parse CSV ---
+    row_length = max(map(len, rows))  # Get the total number of rows
+    col_lengths = [0] * row_length  # We want the longest of each column
+    for row in rows:
+        # Strip whitespace
+        for index, cell in enumerate(row):
+            row[index] = cell.strip()
+            col_lengths[index] = max(col_lengths[index], len(row[index]))
+
+        # Pad each row
+        row.extend([""] * (row_length - len(row)))
 
     # --- Output Formatted CSV ---
     if overwrite:
         out_file = in_path.open("w")
 
-    col_lengths = np.char.str_len(rows).max(axis=0) + 2
     for row in rows:
         print(
-            "".join(f"{f"{cell},":<{length}}" for cell, length in zip(row, col_lengths))
+            "".join(
+                f"{f"{cell},":<{length + 2}}" for cell, length in zip(row, col_lengths)
+            )
             .strip()
             .removesuffix(","),
             file=out_file,
