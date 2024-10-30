@@ -71,7 +71,8 @@ def main(
                 f"{f"{cell},":<{length + 2}}" for cell, length in zip(row, col_lengths)
             )
             .strip()
-            .removesuffix(","),
+            .removesuffix(",")
+            .strip(),
             file=out_file,
         )
 
