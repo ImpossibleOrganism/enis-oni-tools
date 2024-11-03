@@ -1,6 +1,12 @@
 
 # Eni's ONI Tools
 
+This project is in three languages: Python, Rust, and JavaScript. I want to do most of it in Rust, but you'll ideally
+be able to install the code via `cargo`, `pip`, and `npm`. Additionally, I want to host the tools on `github.io`. It's
+going to take me a bit to get all the tooling working though.
+
+## Goals
+
 Okay so here's the first goal that I have: scale a reaction.
 
 Here's a reaction:

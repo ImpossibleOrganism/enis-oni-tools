@@ -61,6 +61,7 @@ system! {
         mod count::Count,
         mod mass_per_count::MassPerCount,
         mod temperature::Temperature,
+        mod heat::Heat,
         mod heat_transfer_rate::HeatTransferRate,
         mod specific_heat_capacity::SpecificHeatCapacity,
     }
