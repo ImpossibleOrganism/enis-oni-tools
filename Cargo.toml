@@ -6,6 +6,10 @@ edition = "2021"
 [lib]
 name = "oni_tools"
 path = "rust/lib.rs"
+# I need to build cdylib for wasm, but I don't always want to do that, I think
+#  "lib" is apparently the recommended build. This way, it builds both each
+#  time it builds. This rabbit hole is too complicated, so it's a TODO.
+crate-type = ["lib", "cdylib"]
 
 [[bin]]
 name = "oni-tools"

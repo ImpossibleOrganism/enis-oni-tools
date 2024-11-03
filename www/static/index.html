@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eni's ONI Tools</title>
+</head>
+<body>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    <p>Hello and welcome to my tools!</p>
+    <button onclick="alert('button 1 has been clicked')">Button #1</button>
+    <!-- The wasm object used here is defined in index.js -->
+    <button onclick="wasm.greet()">Button #2</button>
+
+    Check the f12; for whatever reason, some hookup between the wasm and
+    javascript just isn't working. This is so confusing, bluhhh.
+
+    I can probably not try to use a bundler and then deploy for web, but I don't
+    know I'd publish to NPM in that situation. I think there's a build target
+    for NPM too.
+</body>
+</html>

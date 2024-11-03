@@ -8,8 +8,11 @@ pub use units::Parseable;
 mod elements;
 mod units;
 
-#[cfg(feature="python")]
+#[cfg(feature = "python")]
 mod python;
+
+#[cfg(feature = "wasm")]
+mod wasm_bindings;
 
 // Internal Use
 use uom::fmt::DisplayStyle::Abbreviation;
