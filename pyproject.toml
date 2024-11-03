@@ -13,3 +13,9 @@ find = { where = ["python"] }
 # Private Rust extension module to be nested into the Python package
 # # The last part of the name ("oni_tools") has to match lib.name in Cargo.toml,
 target = "oni_tools._rust.oni_tools"
+# This corresponds to `cargo build --feature python` and allows me to make
+#  pyo3 an optional dependency, in case I'm not building for Python.
+features = ["python"]
+# These are the default, but I like to be explicit
+path = "Cargo.toml"
+binding = "PyO3"

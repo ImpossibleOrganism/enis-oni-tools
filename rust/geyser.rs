@@ -1,4 +1,6 @@
 mod geyser_types;
+
+#[cfg(feature="python")]
 pub mod py_bindings;
 
 use crate::parse_with_default_unit;

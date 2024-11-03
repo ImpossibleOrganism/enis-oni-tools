@@ -11,11 +11,16 @@ path = "rust/lib.rs"
 name = "oni-tools"
 path = "rust/main.rs"
 
+[features]
+python = ["dep:pyo3"]
+wasm = ["dep:wasm-bindgen"]
+
 [dependencies]
-clap = { version = "4.5.18", features = ["cargo", "derive"] }
+clap = { version = "^4.5.20", features = ["cargo", "derive"] }
 phf = { version = "^0.11", features = ["macros"] }
-pyo3 = "0.22.3"
 uom = "^0.36.0"
+pyo3 = { version = "^0.22.5", optional = true }
+wasm-bindgen = { version = "^0.2.95", optional = true }
 
 [build-dependencies]
 csv = "1.3.0"
