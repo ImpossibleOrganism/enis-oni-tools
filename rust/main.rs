@@ -2,6 +2,7 @@ use clap::{CommandFactory, Parser, Subcommand};
 
 use oni_tools;
 use oni_tools::geyser;
+use oni_tools::geyser::geyser_types;
 use oni_tools::Parseable;
 
 #[derive(Parser)]
@@ -75,7 +76,11 @@ fn main() {
                 active_duration,
                 active_period,
             ),
-            GeyserCommands::Types => geyser::print_geyser_types(),
+            GeyserCommands::Types => {
+                for name in geyser::geyser_types() {
+                    println!("{}", name);
+                }
+            }
         },
         Some(Commands::Kilo { mass }) => println!("{}", oni_tools::convert(Parseable::Parse(mass))),
         None => {

@@ -1,3 +1,6 @@
+mod geyser_types;
+pub mod py_bindings;
+
 use crate::parse_with_default_unit;
 use crate::units::mass_flow_rate::gram_per_second;
 use crate::units::mass_flow_rate::kilogram_per_cycle;
@@ -5,24 +8,10 @@ use crate::units::quantities::MassFlowRate;
 use crate::units::quantities::Time;
 use crate::units::time::cycle;
 use crate::units::time::second;
+use geyser_types::{GeyserType, GEYSER_TYPES};
 use uom::fmt::DisplayStyle::Abbreviation;
 
-/// Geyser types from Oxygen Not Included, stored as a mapping from name to struct.
-/// This is hard-coded into the binary; I would like to add the option to provide your own custom
-///  serialized geyser types, but I haven't got to it yet.
-pub const GEYSER_TYPES: phf::Map<&'static str, GeyserType> =
-    include!(concat!(env!("OUT_DIR"), "/gen_geyser_types.rs"));
-
-/// Struct defining a type of Geyser (such as Water Geyser).
-#[derive(Debug)]
-pub struct GeyserType<'a> {
-    name: &'a str,
-    element: &'a str,
-    temperature: f32,
-    pmax: f32,
-    yield_: f32,
-    active: f32,
-}
+pub use geyser_types::geyser_types;
 
 /// Struct defining a specific geyser.
 #[derive(Debug)]
@@ -109,12 +98,6 @@ impl<'a> Geyser<'a> {
 
     pub fn average_yield(&self) -> MassFlowRate {
         self.average_active_yield() * (self.active_duration / self.active_period)
-    }
-}
-
-pub fn print_geyser_types() {
-    for name in GEYSER_TYPES.keys() {
-        println!("{:?}", GEYSER_TYPES.get(name).unwrap());
     }
 }
 

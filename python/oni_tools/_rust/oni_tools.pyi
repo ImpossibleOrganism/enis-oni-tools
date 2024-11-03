@@ -2,7 +2,7 @@
 Python interface for the oni-tools crate.
 """
 
-from typing import Tuple, Literal
+from typing import Tuple, Literal, Iterator
 
 # --- Types --------------------------------------------------------------------
 # We're going to track unit-aware floats with a tuple of a float and a string
@@ -52,6 +52,8 @@ class Geyser:
         activity_cycle: UnitAware[Time, Literal["c"]],
     ): ...
     def rate(self) -> MassFlowRate: ...
+
+def geyser_types() -> Iterator[str]: ...
 
 # I'm keeping this around until I have working API functions.
 def sum_as_string(a: int, b: int) -> str: ...
