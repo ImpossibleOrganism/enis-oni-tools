@@ -28,7 +28,11 @@ pip install .
 Creating & installing the npm package:
 
 ```shell
-wasm-pack build --target web --out-dir ./pkg
+# I'm going to use --target bundler because it's the default for a reason and
+#  I'm using Angular, which I'm pretty sure expects it like this.
+#  --target nodejs uses CommonJS which is out-of-date and
+#  --target web is for if I was doing everything manually (I think).
+wasm-pack build --dev --target bundler --out-dir ./pkg -- --features wasm
 # TODO (I have no idea!)
 ```
 
