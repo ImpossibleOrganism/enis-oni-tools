@@ -56,6 +56,9 @@ rm -r .vscode
 # Select Sass (Intended), SSR & SSG/Prerendering, and defaults
 ng generate application "enis-oni-tools"
 
+# Install my auto-generated node package (?)
+npm install file:../pkg --save
+
 ```
 
 ## Goals
