@@ -11,6 +11,34 @@ This project is my way to learn a few things (Rust, Angular, TypeScript), so it'
 design. I'm also going to have to put a few notes here for when I come back to the project after a few months (as I 
 am right now) so that I know what's going on.
 
+### Running it
+
+Installing the Rust crate:
+
+```shell
+# TODO (I'll remember soon, it's normal I think!)
+```
+
+Installing the Python package:
+
+```shell
+pip install .
+```
+
+Installing the npm package:
+
+```shell
+# TODO (I have no idea!)
+```
+
+Serving the webpage for development:
+
+```shell
+npm run start
+```
+
+I'm pretty sure I have that one set up in RustRover; check if you're me in the future.
+
 ## Goals
 
 Okay so here's the first goal that I have: scale a reaction.
