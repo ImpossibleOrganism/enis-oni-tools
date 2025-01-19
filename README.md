@@ -47,6 +47,14 @@ Here I'll write exactly what I did to set up Angular. I'm following the instruct
 ```shell
 # Install the Angular CLI globally
 npm install --global @angular/cli
+
+# Create a project without an app so they can have different names
+ng new ./www2 --no-create-application
+cd www2
+rm -r .vscode
+# Select Sass (Intended), SSR & SSG/Prerendering, and defaults
+ng generate application "enis-oni-tools"
+
 ```
 
 ## Goals
