@@ -39,6 +39,16 @@ npm run start
 
 I'm pretty sure I have that one set up in RustRover; check if you're me in the future.
 
+### Setting up Angular
+
+Here I'll write exactly what I did to set up Angular. I'm following the instructions I found
+[here](https://medium.com/@eugeniyoz/powering-angular-with-rust-wasm-0eed1668a51c). Hopefully they're good.
+
+```shell
+# Install the Angular CLI globally
+npm install --global @angular/cli
+```
+
 ## Goals
 
 Okay so here's the first goal that I have: scale a reaction.
