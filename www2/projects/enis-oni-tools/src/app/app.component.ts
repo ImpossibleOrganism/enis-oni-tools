@@ -23,7 +23,7 @@ export class AppComponent {
 
   onButtonTwo() {
     // Call the greet function from WASM
-    alert('Button two has been clicked!');
-    // oni_tools.greet();
+    // alert('Button two has been clicked!');
+    oni_tools.greet();
   }
 }

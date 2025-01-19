@@ -65,6 +65,19 @@ ng generate application "enis-oni-tools"
 npm install file:../pkg --save
 ```
 
+When I try to use my wasm, I get the following error:
+
+> "ESM integration proposal for Wasm" is not supported currently. Use vite-plugin-wasm or other community 
+> plugins to handle this. Alternatively, you can use `.wasm?init` or `.wasm?url`. 
+> See https://vite.dev/guide/features.html#webassembly for more details.
+
+Because it's the first recommendation, I think using `vite-plugin-wasm` is probably the most reasonable.
+Vite is the development server that Angular is using, so I suspect this shouldn't be a very intrusive change.
+
+```shell
+npm install --save-dev vite-plugin-wasm
+```
+
 ## Goals
 
 Okay so here's the first goal that I have: scale a reaction.
