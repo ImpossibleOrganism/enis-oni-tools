@@ -32,6 +32,7 @@ Creating & installing the npm package:
 #  I'm using Angular, which I'm pretty sure expects it like this.
 #  --target nodejs uses CommonJS which is out-of-date and
 #  --target web is for if I was doing everything manually (I think).
+# TODO: Switch to using --no-pack and maintain my own wrapper and package.json.
 wasm-pack build --dev --target bundler --out-dir ./pkg -- --features wasm
 # TODO (I have no idea!)
 ```
@@ -62,7 +63,6 @@ ng generate application "enis-oni-tools"
 
 # Install my auto-generated node package (?)
 npm install file:../pkg --save
-
 ```
 
 ## Goals
