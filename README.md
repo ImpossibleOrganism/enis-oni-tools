@@ -25,9 +25,10 @@ Installing the Python package:
 pip install .
 ```
 
-Installing the npm package:
+Creating & installing the npm package:
 
 ```shell
+wasm-pack build --target web --out-dir ./pkg
 # TODO (I have no idea!)
 ```
 
