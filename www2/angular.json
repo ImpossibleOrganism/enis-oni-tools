@@ -93,6 +93,10 @@
               {
                 "glob": "**/*",
                 "input": "projects/enis-oni-tools/public"
+              },
+              {
+                "glob": "**/*.wasm",
+                "input": "../pkg"
               }
             ],
             "styles": [
