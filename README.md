@@ -5,6 +5,12 @@ This project is in three languages: Python, Rust, and JavaScript. I want to do m
 be able to install the code via `cargo`, `pip`, and `npm`. Additionally, I want to host the tools on `github.io`. It's
 going to take me a bit to get all the tooling working though.
 
+## It's been a while
+
+This project is my way to learn a few things (Rust, Angular, TypeScript), so it's probably pretty bizarre in its
+design. I'm also going to have to put a few notes here for when I come back to the project after a few months (as I 
+am right now) so that I know what's going on.
+
 ## Goals
 
 Okay so here's the first goal that I have: scale a reaction.
