@@ -65,7 +65,7 @@ ng generate application "enis-oni-tools"
 npm install file:../pkg --save
 ```
 
-When I try to use my wasm, I get theow to  following error:
+When I try to use my wasm, I get the following error:
 
 > "ESM integration proposal for Wasm" is not supported currently. Use vite-plugin-wasm or other community 
 > plugins to handle this. Alternatively, you can use `.wasm?init` or `.wasm?url`. 
