@@ -11,7 +11,7 @@
 # Directory where Cargo puts is build artifacts
 CARGO_TARGET_DIR := ./target
 # Directory for auto-generated WebAssembly and JavaScript bindings
-GENERATED_WASM_DIR := ./pkg
+GENERATED_WASM_DIR := ./javascript/generated
 # Lightweight development server directory
 DEV_SERVER_DIR := ./www
 # Angular development server directory
@@ -28,9 +28,11 @@ DATA_FILES := $(shell find data -name '*')
 CRATE_SOURCE := $(RUST_FILES) $(DATA_FILES) Cargo.toml
 # The generated WebAssembly and JavaScript / TypeScript bindings
 # These are created by `wasm-pack` and are used by Node.
-WASM_SOURCE := $(GENERATED_WASM_DIR)/%.js \
-	$(GENERATED_WASM_DIR)/%.d.ts  \
-	$(GENERATED_WASM_DIR)/%.wasm
+WASM_SOURCE := $(GENERATED_WASM_DIR)/oni_tools.d.ts \
+	$(GENERATED_WASM_DIR)/oni_tools.js \
+	$(GENERATED_WASM_DIR)/oni_tools_bg.js \
+	$(GENERATED_WASM_DIR)/oni_tools_bg.wasm \
+	$(GENERATED_WASM_DIR)/oni_tools_bg.wasm.d.ts
 
 # === Rust / Cargo Toolchain ===================================================
 # Build the crate with Cargo
@@ -47,6 +49,7 @@ run:
 $(WASM_SOURCE): $(CRATE_SOURCE)
 	@wasm-pack build \
 		--dev \
+		--no-pack \
 		--target bundler \
 		--out-dir $(GENERATED_WASM_DIR) \
 		-- --features wasm

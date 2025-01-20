@@ -1,0 +1,15 @@
+{
+  "name": "oni-tools",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "README.md",
+    "javascript/**",
+    "!javascript/generated/.gitignore"
+  ],
+  "main": "javascript/oni-tools.js",
+  "types": "javascript/oni-tools.d.ts",
+  "sideEffects": [
+    "javascript/generated/oni_tools.js"
+  ]
+}
