@@ -15,7 +15,7 @@ GENERATED_WASM_DIR := ./pkg
 # Lightweight development server directory
 DEV_SERVER_DIR := ./www
 # Angular development server directory
-ANGULAR_SERVER_DR := ./www2
+ANGULAR_SERVER_DR := ./www-angular
 
 # ----- File Collections -----
 # All the .rs source files
