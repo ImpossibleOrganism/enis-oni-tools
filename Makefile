@@ -2,7 +2,7 @@
 
 # === Phony Targets ============================================================
 # I make these phony just in case someone makes a file with the same name
-.PHONY: build run serve serve-angular clean echo
+.PHONY: build run serve serve-angular serve-svelte clean echo
 # These actually need to be phony targets because they have dependents
 .PHONY: wasm
 
@@ -15,7 +15,9 @@ GENERATED_WASM_DIR := ./javascript/generated
 # Lightweight development server directory
 DEV_SERVER_DIR := ./www
 # Angular development server directory
-ANGULAR_SERVER_DR := ./www-angular
+ANGULAR_SERVER_DIR := ./www-angular
+# Svelte development server directory
+SVELTE_SERVER_DIR := ./www-svelte
 
 # ----- File Collections -----
 # All the .rs source files
@@ -62,17 +64,24 @@ wasm: $(WASM_SOURCE)
 
 # Run the development server
 serve: wasm
-	npm run start --prefix $(DEV_SERVER_DIR)
+	@npm run start --prefix $(DEV_SERVER_DIR)
 
 # Run the Angular development server
 serve-angular: wasm
-	npm run start --prefix $(ANGULAR_SERVER_DR)
+	@npm run start --prefix $(ANGULAR_SERVER_DIR)
+
+# Run the Svelte development server
+serve-svelte:
+	@npm run dev --prefix $(SVELTE_SERVER_DIR)
 
 # === Other Utilities ==========================================================
 # Remove all auto-generated files
 clean:
-	rm -r $(GENERATED_WASM_DIR)
-	rm -r $(CARGO_TARGET_DIR)
+	@rm -rf $(GENERATED_WASM_DIR)
+	@rm -rf $(CARGO_TARGET_DIR)
+	@rm -rf "$(ANGULAR_SERVER_DIR)/.angular/cache"
+	@rm -rf "$(SVELTE_SERVER_DIR)/build"
+	@rm -rf "$(SVELTE_SERVER_DIR)/.svelte-kit"
 
 # Print all variables, for debugging this file.
 echo:
