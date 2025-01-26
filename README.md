@@ -87,6 +87,8 @@ npx sv create --template minimal --types ts ./www-svelte
 
 npm install --save-dev @sveltejs/adapter-static
 # Removed '@sveltejs/adapter-auto' from dependencies
+
+# Static site is not working, now for the WebAssembly.
 ```
 
 #### Notes & Resources
