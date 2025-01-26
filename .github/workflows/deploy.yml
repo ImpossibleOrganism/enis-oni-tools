@@ -32,12 +32,22 @@ jobs:
           --target bundler \
           --out-dir javascript/generated \
           -- --features wasm
+      - name: Upload generated JS/WASM Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-wasm
+          path: javascript/generated
   build_svelte:
     needs: build_wasm
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Download generated JS/WASM Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-wasm
+          path: javascript/generated
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
