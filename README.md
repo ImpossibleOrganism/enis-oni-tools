@@ -62,7 +62,7 @@ rm -r .vscode
 ng generate application "enis-oni-tools"
 
 # Install my auto-generated node package (?)
-npm install file:../pkg --save
+npm install file:.. --save
 ```
 
 When I try to use my wasm, I get the following error:
@@ -89,6 +89,14 @@ npm install --save-dev @sveltejs/adapter-static
 # Removed '@sveltejs/adapter-auto' from dependencies
 
 # Static site is not working, now for the WebAssembly.
+npm install file:.. --save
+
+# This time it actually worked, because I was able to edit my vite.config.ts
+#  directly (which Angular did not allow).
+npm install --save-dev vite-plugin-wasm
+
+# These were, for some reason, in the package.json in the SvelteKit tutorial
+# npm install --save-dev @rollup/wasm-node esbuild-wasm
 ```
 
 #### Notes & Resources

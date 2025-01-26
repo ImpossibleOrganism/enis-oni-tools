@@ -2,7 +2,7 @@
 
 # === Phony Targets ============================================================
 # I make these phony just in case someone makes a file with the same name
-.PHONY: build run serve serve-angular serve-svelte clean echo
+.PHONY: build run serve serve-angular serve-svelte svelte clean echo
 # These actually need to be phony targets because they have dependents
 .PHONY: wasm
 
@@ -70,8 +70,12 @@ serve: wasm
 serve-angular: wasm
 	@npm run start --prefix $(ANGULAR_SERVER_DIR)
 
+# Buidl the Svelte static site
+svelte: wasm
+	@npm run build --prefix $(SVELTE_SERVER_DIR)
+
 # Run the Svelte development server
-serve-svelte:
+serve-svelte: wasm
 	@npm run dev --prefix $(SVELTE_SERVER_DIR)
 
 # === Other Utilities ==========================================================
