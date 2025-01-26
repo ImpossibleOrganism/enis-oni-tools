@@ -76,6 +76,25 @@ Vite is the development server that Angular is using, so I suspect this shouldn'
 It looks like people generally get this to work, but I don't think it integrates immediately with 
 `wasm-pack`; I'm probably going to have to go more into the weeds of how my wasm package is created.
 
+### Setting up SvelteKit
+
+After hearing that nobody likes Angular, I decided to switch to SvelteKit.
+Here's what I did.
+
+```shell
+npx sv create --template minimal --types ts ./www-svelte
+# Selected npm as package manager, no other options
+
+npm install --save-dev @sveltejs/adapter-static
+# Removed '@sveltejs/adapter-auto' from dependencies
+```
+
+#### Notes & Resources
+
+- I am building for GitHub Pages, and the static adapter has 
+[specific information](https://svelte.dev/docs/kit/adapter-static#GitHub-Pages)
+about it which I think will be very useful.
+
 ## Goals
 
 Okay so here's the first goal that I have: scale a reaction.
