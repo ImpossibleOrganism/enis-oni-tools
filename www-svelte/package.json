@@ -23,5 +23,8 @@
 	},
 	"dependencies": {
 		"oni-tools": "file:.."
+	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "*"
 	}
 }
