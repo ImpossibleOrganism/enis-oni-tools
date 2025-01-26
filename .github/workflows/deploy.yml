@@ -5,6 +5,10 @@ on:
   push:
     branches: 'trunk'
 
+# Considering using a SVELTE_SOURCE_DIR environment variable to store
+#   'www-svelte' so that it's easy to change latr. I don't know if that would
+#   be idiomatic or strange, however.
+
 jobs:
   build_site:
     runs-on: ubuntu-latest
@@ -19,9 +23,11 @@ jobs:
           cache-dependency-path: 'www-svelte/package-lock.json'
       - name: Install dependencies
         run: npm install
-      - name: build
+        working-directory: www-svelte
+      - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
+        working-directory: www-svelte
         run: npm run build
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
