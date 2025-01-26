@@ -1,14 +1,13 @@
-# Modified from https://svelte.dev/docs/kit/adapter-static#GitHub-Pages
+# Copied from https://svelte.dev/docs/kit/adapter-static#GitHub-Pages
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: 'trunk'
 
-# I repeat this many times, so I figured it'd be good to make it a variable.
-# I'm not sure if this is idiomatic or strange.
-env:
-  SVELTE_SOURCE_DIR: www-svelte
+# Considering using a SVELTE_SOURCE_DIR environment variable to store
+#   'www-svelte' so that it's easy to change latr. I don't know if that would
+#   be idiomatic or strange, however.
 
 jobs:
   build_site:
@@ -19,21 +18,21 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '$SVELTE_SOURCE_DIR/package.json'
+          node-version-file: 'www-svelte/package.json'
           cache: npm
-          cache-dependency-path: '$SVELTE_SOURCE_DIR/package-lock.json'
+          cache-dependency-path: 'www-svelte/package-lock.json'
       - name: Install dependencies
         run: npm install
-        working-directory: '$SVELTE_SOURCE_DIR'
+        working-directory: www-svelte
       - name: Build
-        run: npm run build
-        working-directory: '$SVELTE_SOURCE_DIR'
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
+        working-directory: www-svelte
+        run: npm run build
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '$SVELTE_SOURCE_DIR/build/'
+          path: 'www-svelte/build/'
   deploy:
     needs: build_site
     runs-on: ubuntu-latest
@@ -42,6 +41,11 @@ jobs:
       id-token: write
     environment:
       name: github-pages
+      # According to ChatGPT, this setting is for deploying to
+      #  https://<username>.github.io/
+      # url: ''
+      # According to ChatGPT, this setting is for deploying to
+      #  https://<username>.github.io/<repo-name>/
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy
