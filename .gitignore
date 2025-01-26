@@ -50,7 +50,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# This interfered with SvelteKit's src/lib, so I changed it from lib to ./lib
+./lib/
 lib64/
 parts/
 sdist/
