@@ -10,7 +10,28 @@ on:
 #   be idiomatic or strange, however.
 
 jobs:
-  build_site:
+  build_wasm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Wasm-Pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+      - name: Test Cargo
+        run: cargo test
+      - name: Test wasm-pack (Chrome)
+        run: wasm-pack test --headless --chrome
+      - name: Test wasm-pack (Firefox)
+        run: wasm-pack test --headless --firefox
+      - name: Build
+        run: |
+          wasm-pack build \
+          --dev \
+          --no-pack \
+          --target bundler \
+          --out-dir javascript/generated \
+          -- --features wasm
+  build_svelte:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,7 +55,7 @@ jobs:
         with:
           path: 'www-svelte/build/'
   deploy:
-    needs: build_site
+    needs: build_svelte
     runs-on: ubuntu-latest
     permissions:
       pages: write
